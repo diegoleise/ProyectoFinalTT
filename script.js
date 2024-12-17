@@ -63,13 +63,13 @@ botonDescripcion1.addEventListener("click", function () {
 })
 
 botonDescripcion2.addEventListener("click", function () {
-    
+    precioProducto2.textContent = productosTienda[1].precio
     descripcionProducto2.textContent = productosTienda[1].descripcion
     botonDescripcion2.style.display = "none"
 })
 
 botonDescripcion3.addEventListener("click", function () {
- 
+    precioProducto3.textContent = productosTienda[2].precio
     descripcionProducto3.textContent = productosTienda[2].descripcion
     botonDescripcion3.style.display = "none"
 })

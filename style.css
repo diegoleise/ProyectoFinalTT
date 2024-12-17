@@ -109,9 +109,8 @@ a {
 
 
 .card-container {
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 25px;
+  display: inline-block;
+  justify-content: center; 
 }
 
 .card {
@@ -120,10 +119,10 @@ a {
   width: 225px;
   background-color: #f0f0f0;
   border-radius: 8px;
-  overflow: hidden;
+  margin: 65px;
+  margin-top: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  margin: 65px
-}
+ }
 
 .card img {
   width: 100%;
@@ -160,22 +159,13 @@ a {
   font-weight: bolder;
 }
 
-#title4 {
+.title-form{
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   text-align: center;
 }
 
-#form-container {
-  display: flex;
-  justify-content: center;
-}
 
-#form-compra {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  width: 350px;
-}
+
 
 @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
@@ -284,8 +274,9 @@ fieldset {
 .fs-field {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  
   flex-direction: column;
   row-gap: 0.5rem;
 

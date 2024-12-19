@@ -131,6 +131,10 @@ hr {
   color: black;
 
 }
+.navbar-toggler.collapsed{
+background-color: white;
+}
+
 
 a {
   text-decoration: none

@@ -20,19 +20,8 @@ if (localStorage.getItem("dark-mode")=== "true"){
         document.body.classList.remove('dark');
     }
 
-
-
-
-
-
-
-
-
-
-
 let productosTienda = [
     {
-
         id: 1,
         nombreProducto: "Royal Canin Medium",
         precio: "$7000",
@@ -53,19 +42,28 @@ let productosTienda = [
         precio: "$4000",
         descripcion: "Kongo es una marca de alimento para gatos que ofrece fórmulas balanceadas y nutritivas, adaptadas a las necesidades específicas de los felinos. Sus ingredientes están seleccionados para promover una dieta saludable, favoreciendo la digestión, el bienestar del pelaje y el mantenimiento de un sistema inmunológico fuerte. Además, las croquetas de Kongo están diseñadas para estimular el apetito de los gatos, asegurando una alimentación completa y sabrosa. Disponible en diversas presentaciones, es una opción confiable para mantener a los gatos felices y saludables."
 
+    },
+    {
+        id: 4,
+        nombreProducto: "Royal Canin Gatos",
+        precio: "$6000",
+        descripcion: "Royal canin gatos es una marca de alimento para gatos que ofrece fórmulas balanceadas y nutritivas, adaptadas a las necesidades específicas de los felinos. Sus ingredientes están seleccionados para promover una dieta saludable, favoreciendo la digestión, el bienestar del pelaje y el mantenimiento de un sistema inmunológico fuerte. Además, las croquetas de Kongo están diseñadas para estimular el apetito de los gatos, asegurando una alimentación completa y sabrosa. Disponible en diversas presentaciones, es una opción confiable para mantener a los gatos felices y saludables."
+
     }
 ]
 console.log(productosTienda[0].nombreProducto)
 let descripcionProducto1 = document.getElementById("description-card1")
 let descripcionProducto2 = document.getElementById("description-card2")
 let descripcionProducto3 = document.getElementById("description-card3")
+let descripcionProducto4 = document.getElementById("description-card4")
 let precioProducto1 = document.getElementById("price-product1")
 let precioProducto2 = document.getElementById("price-product2")
 let precioProducto3 = document.getElementById("price-product3")
+let precioProducto4 = document.getElementById("price-product4")
 let botonDescripcion1 = document.getElementById("btn-description1")
 let botonDescripcion2 = document.getElementById("btn-description2")
 let botonDescripcion3 = document.getElementById("btn-description3")
-
+let botonDescripcion4 = document.getElementById("btn-description4")
 
 botonDescripcion1.addEventListener("click", function () {
     precioProducto1.textContent = productosTienda[0].precio
@@ -83,4 +81,9 @@ botonDescripcion3.addEventListener("click", function () {
     precioProducto3.textContent = productosTienda[2].precio
     descripcionProducto3.textContent = productosTienda[2].descripcion
     botonDescripcion3.style.display = "none"
+})
+botonDescripcion4.addEventListener("click", function () {
+    precioProducto4.textContent = productosTienda[3].precio
+    descripcionProducto4.textContent = productosTienda[3].descripcion
+    botonDescripcion4.style.display = "none"
 })

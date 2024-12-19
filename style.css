@@ -86,7 +86,7 @@ body {
 }
 
 #title3 {
-  margin-top: 0px;
+  margin-top: 50px;
   text-align: center;
 }
 
@@ -146,19 +146,22 @@ a {
 }
 
 
-.card-container {
+.card-container{
   display: inline-block;
-  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
 }
 
 .card {
-  float: left;
+
+  float: right;
   flex-wrap: wrap;
-  width: 225px;
+  width: 40vh;
   background-color: #f0f0f0;
   border-radius: 8px;
-  margin: 65px;
-  margin-top: 10px;
+  margin: 35px;
+  margin-top: 20px;
+
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -166,6 +169,7 @@ a {
   width: 100%;
   height: auto;
   margin: auto;
+  border-radius: 8px;
 }
 
 .card-content {
@@ -195,6 +199,17 @@ a {
 
 .btn-description {
   font-weight: bolder;
+}
+
+.title-quienes{
+  margin-top: 25px;
+  text-align: center;
+}
+
+.div-quienes{
+  display: block;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .title-form {

@@ -1,24 +1,24 @@
 
 const btnSwich = document.querySelector('#swich')
 console.log(btnSwich)
-btnSwich.addEventListener('click', ()=>{
+btnSwich.addEventListener('click', () => {
     document.body.classList.toggle('dark');
     btnSwich.classList.toggle('active');
-//guardamos el estado actual del boton
+    //guardamos el estado actual del boton
     if (document.body.classList.contains('dark')) {
         localStorage.setItem("dark-mode", "true");
-}else{
-    localStorage.setItem("dark-mode", "false");
-}
+    } else {
+        localStorage.setItem("dark-mode", "false");
+    }
 })
 //recuperamos el estado del boton
-if (localStorage.getItem("dark-mode")=== "true"){
+if (localStorage.getItem("dark-mode") === "true") {
     document.body.classList.add('dark');
     btnSwich.classList.add('active');
 }
-    else{
-        document.body.classList.remove('dark');
-    }
+else {
+    document.body.classList.remove('dark');
+}
 
 let productosTienda = [
     {
@@ -66,24 +66,54 @@ let botonDescripcion3 = document.getElementById("btn-description3")
 let botonDescripcion4 = document.getElementById("btn-description4")
 
 botonDescripcion1.addEventListener("click", function () {
-    precioProducto1.textContent = productosTienda[0].precio
+
     descripcionProducto1.textContent = productosTienda[0].descripcion
     botonDescripcion1.style.display = "none"
 })
 
 botonDescripcion2.addEventListener("click", function () {
-    precioProducto2.textContent = productosTienda[1].precio
+
     descripcionProducto2.textContent = productosTienda[1].descripcion
     botonDescripcion2.style.display = "none"
 })
 
 botonDescripcion3.addEventListener("click", function () {
-    precioProducto3.textContent = productosTienda[2].precio
+
     descripcionProducto3.textContent = productosTienda[2].descripcion
     botonDescripcion3.style.display = "none"
 })
 botonDescripcion4.addEventListener("click", function () {
-    precioProducto4.textContent = productosTienda[3].precio
+
     descripcionProducto4.textContent = productosTienda[3].descripcion
     botonDescripcion4.style.display = "none"
 })
+
+let contenedorCarrito = []
+
+const tarjetaProducto = document.querySelectorAll(".card")
+console.log(tarjetaProducto)
+
+tarjetaProducto.forEach(tarjeta => {
+    tarjeta.addEventListener("click", e => {
+        if (e.target.classList.contains("addToKartBtn")) {
+            const infoProducto = {
+                imagen: tarjeta.querySelector("img").src,
+                cantidad: 1,
+                nombre: tarjeta.querySelector(".name").textContent,
+                precio: parseFloat(tarjeta.querySelector(".price-product").textContent.slice(1)),
+            }
+
+            const productoExistente = contenedorCarrito.find(product => infoProducto.nombre === product.nombre)
+            if (productoExistente) {
+                productoExistente.cantidad++
+            } else {
+                contenedorCarrito.push(infoProducto)
+            }
+
+
+            console.log(contenedorCarrito)
+        }
+    })
+}
+
+)

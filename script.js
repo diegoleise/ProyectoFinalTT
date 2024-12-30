@@ -109,11 +109,34 @@ tarjetaProducto.forEach(tarjeta => {
             } else {
                 contenedorCarrito.push(infoProducto)
             }
-
+            actualizarCarritoContent()
 
             console.log(contenedorCarrito)
         }
     })
-}
+})
 
-)
+const listadoCarrito = document.querySelector(".listado-carrito")
+function actualizarCarritoContent() {
+    listadoCarrito.innerHTML = ""
+    contenedorCarrito.forEach((item, index) => {
+        const li = document.createElement("li")
+        li.classList.add("info-carrito")
+        li.innerHTML = `<div class="foto-carrito">
+            <img src="${item.imagen}" alt="">
+            </div>
+            <div class="titulo-carrito">
+                <span class="articulo">${item.nombre}</span>
+            </div>
+            <div class="precio-cantidad">
+              <span class="precio">${item.precio}</span>
+              <input type="number" class="cantidad" min="1" value="${item.cantidad}">
+            </div>
+            <div class="quitar-articulo">
+              <img src="quitar.png" class="quitar" alt="" data-index="${index}">
+            </div>
+            `
+            listadoCarrito.appendChild(li)
+    })
+
+}

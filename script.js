@@ -88,55 +88,63 @@ botonDescripcion4.addEventListener("click", function () {
     botonDescripcion4.style.display = "none"
 })
 
-let contenedorCarrito = []
+const btnCart = document.querySelector('.container-cart-icon')
+const containerCartProducts = document.querySelector('.container-cart-products')
 
-const tarjetaProducto = document.querySelectorAll(".card")
-console.log(tarjetaProducto)
-
-tarjetaProducto.forEach(tarjeta => {
-    tarjeta.addEventListener("click", e => {
-        if (e.target.classList.contains("addToKartBtn")) {
-            const infoProducto = {
-                imagen: tarjeta.querySelector("img").src,
-                cantidad: 1,
-                nombre: tarjeta.querySelector(".name").textContent,
-                precio: parseFloat(tarjeta.querySelector(".price-product").textContent.slice(1)),
-            }
-
-            const productoExistente = contenedorCarrito.find(product => infoProducto.nombre === product.nombre)
-            if (productoExistente) {
-                productoExistente.cantidad++
-            } else {
-                contenedorCarrito.push(infoProducto)
-            }
-            actualizarCarritoContent()
-
-            console.log(contenedorCarrito)
-        }
-    })
+btnCart.addEventListener('click', () => {
+    containerCartProducts.classList.toggle('hidden-cart')
 })
+const cartInfo = document.querySelector(".cart-product")
+const rowProduct = document.querySelector(".row-product")
+//lista de todos los productos
+const productList = document.querySelector(".card-container")
+//variables de arreglos de productos
+let allProducts = []
 
-const listadoCarrito = document.querySelector(".listado-carrito")
-function actualizarCarritoContent() {
-    listadoCarrito.innerHTML = ""
-    contenedorCarrito.forEach((item, index) => {
-        const li = document.createElement("li")
-        li.classList.add("info-carrito")
-        li.innerHTML = `<div class="foto-carrito">
-            <img src="${item.imagen}" alt="">
-            </div>
-            <div class="titulo-carrito">
-                <span class="articulo">${item.nombre}</span>
-            </div>
-            <div class="precio-cantidad">
-              <span class="precio">${item.precio}</span>
-              <input type="number" class="cantidad" min="1" value="${item.cantidad}">
-            </div>
-            <div class="quitar-articulo">
-              <img src="quitar.png" class="quitar" alt="" data-index="${index}">
-            </div>
-            `
-            listadoCarrito.appendChild(li)
+
+
+
+productList.addEventListener("click", e => {
+
+    if (e.target.classList.contains("btn-add-cart")) {
+
+        const product = e.target.parentElement
+        const infoProducto = {
+            quantity: 1,
+            title: product.querySelector(".name").textContent,
+            price: product.querySelector(".price-product").textContent,
+        }
+        allProducts = [...allProducts, infoProducto]
+        showHTML();
+    }
+
+
+})
+//funcion para mostrar los productos en el carrito
+
+const showHTML = () => {
+    rowProduct.innerHTML = "";
+    allProducts.forEach(product => {
+        const containerProduct = document.createElement("div")
+        containerProduct.classList.add("cart-product")
+        containerProduct.innerHTML = `
+            <div class="info-cart-product">
+				<span class="cantidad-producto-carrito">${product.quantity}</span>
+				<p class="titulo-producto-carrito">${product.title}</p>
+				<span class="precio-producto-carrito">${product.price}</span>
+			</div>
+			<svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                // fill="none" viewBox="0 0 24 24"                
+                // stroke-width="1.5" stroke="currentColor" 
+                // class="icon-close">
+			<path 
+                stroke-linecap="round" 
+                stroke-linejoin="round" 
+                d="M6 18L18 6M6 6l12 12" />
+			</svg>
+        
+        `
+        rowProduct.append(containerProduct)
     })
-
 }

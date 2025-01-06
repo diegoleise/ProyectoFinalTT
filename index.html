@@ -42,22 +42,40 @@
         </li>
       </ul>
 
-      <div class="icono-carrito" id="boton_carrito">
-        <img src="bolsa_compra.png" alt="">
-        <div class="contador-carrito" id="contador-carrito">
-          <span class="span-carrito">0</span>
+      <div class="container-icon">
+        <div class="container-cart-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="icon-cart">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+          </svg>
+          <div class="count-products">
+            <span id="contador-productos">0</span>
+          </div>
+        </div>
+
+
+        <div class="container-cart-products hidden-cart">
+          <div class="row-product">
+            <div class="cart-product">
+              <div class="info-cart-product">
+                <span class="cantidad-producto-carrito">1</span>
+                <p class="titulo-producto-carrito">Zapatos Nike</p>
+                <span class="precio-producto-carrito">$80</span>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="icon-close">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="cart-total">
+            <h3>Total:</h3>
+            <span class="total-pagar">$200</span>
+          </div>
         </div>
       </div>
-      <div class="contenedor-carrito" id="contenedor-carrito">
-        <ul class="listado-carrito">
-          <div class="total-carrito">
-            <span class="total">Total $</span><span class="precio-total">0</span>
-          </div>
-          <div class="proceder-pago">
-            <a href="#">Proceder al pago</a>
-          </div>
-        </ul>
-  </div>
     </div>
   </div>
 </nav>
@@ -65,7 +83,7 @@
 
 <body id="body-tienda">
   <h1 id="title">Tienda de Mascotas</h1>
-  
+
   <h2 id="title2">LO MEJOR PARA TU MASCOTA EN UN SOLO LUGAR</h2>
   <div id="container_video">
     <video class="videoMascota" src="amigoGato.mp4" autoplay muted loop></video>
@@ -81,8 +99,8 @@
     <div class="card">
       <img src="royalmedium.png" alt="">
       <div class="card-content">
-        <h3 class="name">Royal Canin Medium</h3>
-        <button class="addToKartBtn">Agregar al carrito</button>
+        <h3 class="name">Royal Medium</h3>
+        <button class="btn-add-cart">Agregar al carrito</button>
         <h6 class="price-product"><span>$</span>7000</h6>
         <p id="description-card1">Medium</p>
         <button id="btn-description1" class="btn-description">Mas informacion</button>
@@ -92,7 +110,7 @@
       <img src="royalcanin2.png" alt="">
       <div class="card-content">
         <h3 class="name">Royal Canin</h3>
-        <button class="addToKartBtn">Agregar al carrito</button>
+        <button class="btn-add-cart">Agregar al carrito</button>
         <h6 class="price-product"><span>$</span>5000</h6>
         <p id="description-card2">Adulto</p>
         <button id="btn-description2" class="btn-description">Mas informacion</button>
@@ -102,7 +120,7 @@
       <img src="kongo.jpeg" alt="">
       <div class="card-content">
         <h3 class="name">Kongo</h3>
-        <button class="addToKartBtn">Agregar al carrito</button>
+        <button class="btn-add-cart">Agregar al carrito</button>
         <h6 class="price-product"><span>$</span>4000</h6>
         <p id="description-card3">Gatos</p>
         <button id="btn-description3" class="btn-description">Mas informacion</button>
@@ -112,7 +130,7 @@
       <img src="castrados.jpg" alt="">
       <div class="card-content">
         <h3 class="name">Royal castrados</h3>
-        <button class="addToKartBtn">Agregar al carrito</button>
+        <button class="btn-add-cart">Agregar al carrito</button>
         <h6 class="price-product"><span>$</span>6000</h6>
         <p id="description-card4">Gatos</p>
         <button id="btn-description4" class="btn-description">Mas informacion</button>

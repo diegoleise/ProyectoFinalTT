@@ -245,6 +245,22 @@
   display: none;
 }
 
+.hidden{
+  display: none;
+}
+.cart-empty{
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+.empty-cart{
+  background-color: #000;
+  width: 100%;
+  height: 50px;
+  color: #fff;
+  cursor: pointer;
+}
+
 body {
   background-color: bisque;
   transition: 0.3s ease all;

@@ -56,12 +56,12 @@
 
 
         <div class="container-cart-products hidden-cart">
-          <div class="row-product">
+          <div class="row-product hidden">
             <div class="cart-product">
               <div class="info-cart-product">
-                <span class="cantidad-producto-carrito">1</span>
-                <p class="titulo-producto-carrito">Zapatos Nike</p>
-                <span class="precio-producto-carrito">$80</span>
+                <span class="cantidad-producto-carrito"></span>
+                <p class="titulo-producto-carrito"></p>
+                <span class="precio-producto-carrito"></span>
               </div>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="icon-close">
@@ -70,9 +70,13 @@
             </div>
           </div>
 
-          <div class="cart-total">
+          <div class="cart-total hidden">
             <h3>Total:</h3>
-            <span class="total-pagar">$200</span>
+            <span class="total-pagar"></span>
+          </div>
+					<p class="cart-empty">El carrito está vacío</p>
+					<button class="empty-cart hidden">Vaciar carrito</button>
+				</div>
           </div>
         </div>
       </div>
@@ -95,7 +99,7 @@
   </div>
   <h3 id="title3">Nuestros Productos</h3>
 
-  <div class="card-container">
+  <div class="container-items">
     <div class="card">
       <img src="royalmedium.png" alt="">
       <div class="card-content">

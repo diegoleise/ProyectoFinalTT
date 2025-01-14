@@ -2,23 +2,25 @@
 const btnSwich = document.querySelector('#swich')
 
 btnSwich.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
+    
+	document.body.classList.toggle('dark');
     btnSwich.classList.toggle('active');
     //guardamos el estado actual del boton
     if (document.body.classList.contains('dark')) {
-        localStorage.setItem("dark-mode", "true");
+        localStorage.setItem("dark-node", "true");
     } else {
-        localStorage.setItem("dark-mode", "false");
+        localStorage.setItem("dark-node", "false");
     }
 })
 //recuperamos el estado del boton
-if (localStorage.getItem("dark-mode") === "true") {
+if (localStorage.getItem("dark-node") === "true") {
     document.body.classList.add('dark');
     btnSwich.classList.add('active');
 }
 else {
     document.body.classList.remove('dark');
 }
+ 
 
 let productosTienda = [
     {
@@ -92,14 +94,21 @@ const btnCart = document.querySelector('.container-cart-icon')
 const containerCartProducts = document.querySelector('.container-cart-products')
 
 btnCart.addEventListener('click', () => {
+	
+
+	
     containerCartProducts.classList.toggle('hidden-cart')
+
+	
 })
 const cartInfo = document.querySelector(".cart-product")
 const rowProduct = document.querySelector(".row-product")
 //lista de todos los productos
 const productList = document.querySelector(".container-items")
 //variables de arreglos de productos
-let allProducts = []
+
+let allProducts = JSON.parse(localStorage.getItem("productos")) || [];
+
 const valorTotal = document.querySelector('.total-pagar');
 const countProducts = document.querySelector('#contador-productos');
 const cartEmpty = document.querySelector('.cart-empty');
@@ -133,14 +142,19 @@ productList.addEventListener("click", function (e) {
             allProducts = [...product1];
 		} else{
 				allProducts = [...allProducts, infoProducto];
-			
+				
 			}
+			saveLocal()
 			showProducts();
+			
+			
+			
 	}
 				
 });
 
 rowProduct.addEventListener('click', e => {
+	
 	if (e.target.classList.contains('icon-close')) {
 		const product = e.target.parentElement;
 		const title = product.querySelector('p').textContent;
@@ -148,11 +162,9 @@ rowProduct.addEventListener('click', e => {
 		allProducts = allProducts.filter(
 			product => product.title !== title
 		);
-		console.log(allProducts);
-		if(cartEmpty.textContent === 'El carrito está vacío'){
-			deleteProduct.classList.add('hidden')
-		}
-
+	
+		
+		saveLocal();
 		showProducts()
 	}
 });
@@ -163,12 +175,9 @@ rowProduct.addEventListener('click', e => {
 //funcion para mostrar productos en el carrito
 const showProducts = () => {
 	
-	if(allProducts.length > 0) {
+
 	
-		deleteProduct.classList.remove('hidden');
-	}
-	
-	if (!allProducts.length) {
+	if (allProducts .length === 0) {
 		cartEmpty.classList.remove('hidden');
 		rowProduct.classList.add('hidden');
 		cartTotal.classList.add('hidden');
@@ -205,30 +214,30 @@ const showProducts = () => {
 								/>
 							</svg>
 							`;
+
 		rowProduct.append(containerProduct);
 		total = total +parseInt(producto.price.slice(1) * producto.quantity);
 		totalItems = totalItems + producto.quantity;
+		;
+	
 	})
+	
 	valorTotal.innerText = `$${total}`
 	countProducts.innerText = totalItems
+	saveLocal();
 }
 
-//funcion para eliminar productos del carrito
-const deleteProduct = document.querySelector(".empty-cart")
 
+	//guardamos los productos en el localStorage
+saveLocal = () => {
+	localStorage.setItem("productos", JSON.stringify(allProducts));
+}
+//recuperamos los productos del localStorage
+JSON.parse(localStorage.getItem("productos"));
 
-
-
-
-deleteProduct.addEventListener ("click", () => {
-	allProducts = [];
-	deleteProduct.classList.add('hidden')
-
-	cartEmpty.classList.remove('hidden');
-	rowProduct.classList.add('hidden');
-	cartTotal.classList.add('hidden');
-	countProducts.textContent = 0;
-
+document.addEventListener("DOMContentLoaded", function() {
 	
-	
-	})
+	saveLocal()
+	showProducts();
+
+})

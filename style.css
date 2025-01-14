@@ -170,8 +170,7 @@
 }
 
 .container-cart-products{
-  display: flex;
-  flex-wrap: wrap;
+ 
   background-color: red;
   position: absolute;
   top: 50px;

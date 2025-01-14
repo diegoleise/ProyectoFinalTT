@@ -170,13 +170,15 @@
 }
 
 .container-cart-products{
+  display: flex;
+  flex-wrap: wrap;
   background-color: red;
   position: absolute;
   top: 50px;
   right: 0;
 
   background-color: bisque;
-  width: 500px;
+  width: 400px;
   z-index: 1;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
   border-radius: 10px;

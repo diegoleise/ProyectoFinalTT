@@ -365,6 +365,7 @@ a {
   display: flex;
   align-items: center;
   margin-top: 0px;
+  flex-wrap: wrap;
 }
 
 .card {
@@ -814,6 +815,8 @@ fieldset {
 }
 
 @media (max-width: 980px) {
+  
+  
   .count-products {
   left: 0;
  }
